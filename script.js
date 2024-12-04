@@ -52,29 +52,11 @@ function reloadPage(){
 
 
 // URLのコピー
-function copyUrl(url) {
-  if (navigator.clipboard && window.isSecureContext) {
-      // モダンな方法
-      navigator.clipboard.writeText(url)
-          .then(() => alert('テキストをコピーしました'))
-          .catch(err => console.error('コピーに失敗しました:', err));
-  } else {
-      // 従来の方法
-      const textarea = document.createElement('textarea');
-      textarea.value = url;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
-      document.body.appendChild(textarea);
-      textarea.select();
-      
-      try {
-          document.execCommand('copy');
-          alert('テキストをコピーしました');
-      } catch (err) {
-          console.error('コピーに失敗しました:', err);
-      } finally {
-          document.body.removeChild(textarea);
-      }
+async function copyUrl(url = "https://kg9n3n8y.github.io/tsukuyomi/") {
+  try {
+      await navigator.clipboard.writeText(text);
+      alert('テキストをコピーしました');
+  } catch (err) {
+      console.error('コピーに失敗しました:', err);
   }
 }
-
