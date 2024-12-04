@@ -53,10 +53,12 @@ function reloadPage(){
 
 // URLのコピー
 async function copyUrl(url = "https://kg9n3n8y.github.io/tsukuyomi/") {
-  try {
-      await navigator.clipboard.writeText(text);
-      alert('テキストをコピーしました');
-  } catch (err) {
-      console.error('コピーに失敗しました:', err);
-  }
+  const textarea = document.createElement('textarea');
+  textarea.value = url;
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  alert('URLをコピーしました')
 }
