@@ -52,7 +52,7 @@ function reloadPage(){
 
 
 // URLのコピー
-async function copyUrl(url = "https://kg9n3n8y.github.io/tsukuyomi/") {
+function copyUrl(url = "https://kg9n3n8y.github.io/tsukuyomi/") {
   const textarea = document.createElement('textarea');
   textarea.value = url;
   textarea.style.position = 'fixed';
