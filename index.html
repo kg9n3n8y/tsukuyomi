@@ -38,9 +38,26 @@
       <input type="button" onclick="copyUrl()" value="  URLをコピーする  ">
     </p>
 
-    <div class="float-button-container">
-      <canvas class="circle-progress"></canvas>
-      <button class="float-button"></button>
+    <div class="float-buttons">
+      <button id="top-button" class="float-button">
+          <span class="button-text">下の句</span>
+          <svg class="circle-progress" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45"/>
+          </svg>
+      </button>
+      <button id="middle-button" class="float-button">
+        <span class="button-text">余韻<br>間</span>
+        <svg class="circle-progress" viewBox="0 0 100 100">
+            <circle class="main-circle" cx="50" cy="50" r="45"/>
+            <path class="quarter-circle" d="M50,5 A45,45 0 0,1 95,50"/>
+        </svg>
+      </button>
+      <button id="bottom-button" class="float-button">
+          <span class="button-text">上の句</span>
+          <svg class="circle-progress" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45"/>
+          </svg>
+      </button>
     </div>
     <script src="script.js"></script>
   </body>

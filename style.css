@@ -54,34 +54,77 @@ iframe {
 
 
 /* ここからタイマー用 */
-.float-button-container {
+.float-buttons {
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.float-button {
   width: 60px;
   height: 60px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.button-text {
+  position: relative;
+  z-index: 2;
 }
 
 .circle-progress {
   position: absolute;
-  width: 76px;
-  height: 76px;
-  transform: translate(-7px, -7px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
 }
 
-.float-button {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #4285f4;
-  border: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  cursor: pointer;
-  z-index: 1;
-  transition: background-color 0.3s ease;
+.circle-progress circle,
+.circle-progress .quarter-circle {
+  fill: none;
+  stroke: #336633;
+  stroke-width: 8;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.1s linear;
 }
 
-.float-button:hover {
-  background: #3367d6;
+#middle-button .circle-progress .main-circle {
+  stroke: #336633;
+  stroke-dasharray: -212;
+}
+
+#middle-button .circle-progress .quarter-circle {
+  stroke: #ff8c00;
+  stroke-dasharray: -71;
+}
+
+@keyframes disappear {
+  to {
+      stroke-dashoffset: -283;
+  }
+}
+
+@keyframes disappear-quarter {
+  to {
+      stroke-dashoffset: -71;
+  }
+}
+
+@keyframes disappear-main {
+  to {
+      stroke-dashoffset: -283;
+  }
 }
