@@ -108,7 +108,7 @@ iframe {
 
 #middle-button .circle-progress .quarter-circle {
   stroke: #ff8c00;
-  stroke-dasharray: -71;
+  stroke-dasharray: 71;
 }
 
 @keyframes disappear {
@@ -119,12 +119,12 @@ iframe {
 
 @keyframes disappear-quarter {
   to {
-      stroke-dashoffset: -71;
+      stroke-dashoffset: 71;
   }
 }
 
 @keyframes disappear-main {
   to {
-      stroke-dashoffset: -283;
+      stroke-dashoffset: 283;
   }
 }
