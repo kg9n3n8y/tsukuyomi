@@ -8,6 +8,7 @@ function createTable() {
   table.id = 'tableData';
   
   let yomifudalist = shuffleExceptFirst(fudalist);
+  yomifudalist = concatNumberTag(yomifudalist);
 
   yomifudalist.forEach((content, index) => {
     const row = document.createElement('tr');
@@ -33,9 +34,23 @@ function shuffleExceptFirst(array) {
   const result = [...array];
   
   // 2番目の要素から最後までをシャッフル
-  for (let i = array.length - 1; i > 1; i--) {
-      const j = Math.floor(Math.random() * (i - 1)) + 1;
-      [result[i], result[j]] = [result[j], result[i]];
+  for (let i = 100; i > 1; i--) {
+    let j = Math.floor(Math.random() * (i - 1)) + 1;
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  
+  return result;
+}
+
+// タグと数字をつける
+function concatNumberTag(array) {
+  // 配列のコピーを作成
+  const result = [...array];
+  
+  // 配列にタグとタグを付与する
+  for (let i = 1; i < 101; i++) {
+    let tag = "<input type='checkbox' id='fuda" + i + "'><label for='fuda" + i + "'><span class='num'>" + i;
+    result[i] = tag.concat(result[i]);
   }
   
   return result;
@@ -67,7 +82,7 @@ function copyUrl(url = "https://kg9n3n8y.github.io/tsukuyomi/") {
 // タイマー
 document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.float-button');
-  
+
   buttons.forEach(button => {
       button.addEventListener('click', () => {
           const circle = button.querySelector('circle') || button.querySelector('.main-circle');
@@ -88,6 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
                   break;
           }
       });
+  });
+
+  const toggleButton = document.getElementById('toggle-button');
+  const floatButtons = document.querySelector('.float-buttons');
+
+  toggleButton.addEventListener('click', () => {
+    floatButtons.classList.toggle('visible');
   });
 });
 

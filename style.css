@@ -56,11 +56,15 @@ iframe {
 /* ここからタイマー用 */
 .float-buttons {
   position: fixed;
-  bottom: 10px;
+  bottom: 70px;
   right: 10px;
-  display: flex;
   flex-direction: column;
   gap: 10px;
+  display: none;
+}
+
+.float-buttons.visible {
+  display: flex;
 }
 
 .float-button {
@@ -128,4 +132,17 @@ iframe {
   to {
       stroke-dashoffset: 283;
   }
+}
+
+.toggle-button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: 2px solid #336633;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px gray;
 }
